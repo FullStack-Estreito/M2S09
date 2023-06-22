@@ -7,6 +7,7 @@ import { SerieComponent } from './components/serie/serie.component';
 import { ListaEpisodiosComponent } from './components/lista-episodios/lista-episodios.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     SerieComponent,
     ListaEpisodiosComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
