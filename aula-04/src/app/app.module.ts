@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FullComponent } from './layouts/full/full.component';
 import { NotFoundComponent } from './components/public/not-found/not-found.component';
-import { PrivateModule } from './components/private/private.module';
-import { PublicModule } from './components/public/public.module';
 
 @NgModule({
   declarations: [
@@ -16,9 +14,7 @@ import { PublicModule } from './components/public/public.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    PrivateModule,
-    PublicModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
