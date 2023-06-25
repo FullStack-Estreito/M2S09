@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'aula-01';
+  valor = 'bom dia';
+  flag = true;
+
+  mudarValor() {
+    this.valor = this.valor == 'bom dia' ? 'boa noite' : 'bom dia';
+  }
+
+  toggleComponente() {
+    this.flag = !this.flag;
+  }
 }
