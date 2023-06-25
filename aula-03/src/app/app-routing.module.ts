@@ -6,15 +6,17 @@ import { FullComponent } from './layouts/full/full.component';
 import { NotFoundComponent } from './components/public/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/content/home', pathMatch: 'full' },
-  { 
-  path: 'content', component: FullComponent,
-  children: [
-    { path: 'home', component: HomeComponent },
-    { path: 'serie/:id', component: SerieComponent },
-    { path: '**', component: NotFoundComponent }
-  ] 
-}];
+  {
+    path: '',
+    component: FullComponent,
+    children: [
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'serie/:id', component: SerieComponent },
+      { path: '**', component: NotFoundComponent }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
