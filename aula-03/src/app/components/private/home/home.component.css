@@ -8,3 +8,9 @@
 span {
     font-size: small;
 }
+
+img {
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
