@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/private/home/home.component';
-import { SerieComponent } from './components/private/serie/serie.component';
 import { FullComponent } from './layouts/full/full.component';
 import { NotFoundComponent } from './components/public/not-found/not-found.component';
-import { acessarAutenticacaoGuard } from './guards/auth.guard';
+import { acessarAutenticacaoGuard, acessarModuloPrivadoGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: FullComponent,
     children: [
-      { path: '', redirectTo: 'private/home', pathMatch: 'full' },
+      { path: '', redirectTo: 'public/signin', pathMatch: 'full' },
       {
         path: 'private',
+        canActivate: [acessarModuloPrivadoGuard],
         loadChildren: () => import('src/app/components/private/private.module').then(m => m.PrivateModule)
       },
       {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -9,11 +10,18 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   login(form: NgForm) {
-    console.log(form.value);
-    this.router.navigate(['/private/home']);
+    this.authService.obterTodosOsUsuarios().subscribe(usuarios => {
+      const usuarioValido = this.authService.validarUsuario(usuarios, form.value);
+      if (!usuarioValido) {
+        alert("Usuário ou senha incorretos!");
+        return;
+      }
+      this.authService.isLoggedIn = true;
+      this.router.navigate(['/private/home']);
+    });
   }
 
   goToSignup() {

@@ -8,3 +8,7 @@ export const acessarAutenticacaoGuard: CanActivateFn = (route, state) => {
   else
     return true;
 };
+
+export const acessarModuloPrivadoGuard: CanActivateFn = (route, state) => {
+  return inject(AuthService).isLoggedIn;
+}
